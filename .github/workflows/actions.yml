@@ -10,7 +10,7 @@ jobs:
     steps:
 
       - name: checkout repo content
-        uses: actions/checkout@v3 # checkout the repository content to github runner
+        uses: actions/checkout@v2 # checkout the repository content to github runner
 
       - name: setup python
         uses: actions/setup-python@v4
@@ -19,11 +19,30 @@ jobs:
           cache: 'pip'
           
       - name: install python packages
-        run: pip install -r requirements.txt
-          
+        run: |
+          pip install -r requirements.txt
+
+      #- name: Prepare Chrome and ChromeDriver
+      #  uses: browser-actions/setup-chrome@latest
+
+      #- name: install chromedriver
+      #  run: |
+      #    wget https://chromedriver.storage.googleapis.com/99.0.4844.51/chromedriver_linux64.zip
+      #    unzip chromedriver_linux64.zip
+      #    chmod +x chromedriver
+      #    sudo mv chromedriver /usr/local/bin/
+      #    chmod +x /usr/local/bin/chromedriver # Ensure chromedriver is executable
+
+      #- name: install Chrome
+      #  run: |
+      #    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+      #    sudo dpkg -i google-chrome-stable_current_amd64.deb
+      #    sudo apt-get install -f
+
       - name: scrape hikr data 
         working-directory: ./spider
-        run: scrapy crawl gpx -s CLOSESPIDER_PAGECOUNT=50 -o file.jl
+        run: |
+          scrapy crawl gpx -s CLOSESPIDER_PAGECOUNT=50 -o file.jl
 
       - name: upload data to mongodb
         working-directory: spider/downloads
