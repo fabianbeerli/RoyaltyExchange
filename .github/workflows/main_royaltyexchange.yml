@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_32c0590ff7fb4c128c0333038bc0a6f3 }}/fabianbeerli/royaltyexchange:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_32c0590ff7fb4c128c0333038bc0a6f3 }}/royaltyexchange:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'royaltyexchange'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_bc51f56d219c41239f52986e32d60d6b }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_32c0590ff7fb4c128c0333038bc0a6f3 }}/fabianbeerli/royaltyexchange:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_32c0590ff7fb4c128c0333038bc0a6f3 }}/royaltyexchange:${{ github.sha }}'
