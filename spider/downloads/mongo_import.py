@@ -15,23 +15,6 @@ from pathlib import Path
 
 def to_document(base_dir, item):
     try:
-        #file_item = item["files"][0]
-        # file_path = os.path.join(base_dir, "downloads", file_item['path'])
-        #file_path = Path(base_dir, "downloads", file_item['path'])
-        #file = open(file_path, encoding='UTF-8')
-        #gpx = gpxpy.parse(file)
-        #doc = {
-            # "gpx": gpx.to_xml(),
-         #   "min_elevation": gpx.get_elevation_extremes()[0],            
-          #  "max_elevation": gpx.get_elevation_extremes()[1],
-          #  "uphill": gpx.get_uphill_downhill()[0],            
-          #  "downhill": gpx.get_uphill_downhill()[1],
-          #  "max_speed": gpx.get_moving_data().max_speed,                        
-          #  "length_2d": gpx.length_2d(),                     
-          #  "length_3d": gpx.length_3d(),
-          #  "moving_time": gpx.get_moving_data().moving_time,
-          #  "difficulty": item["difficulty"]
-        #}
         doc = {
             "title": item["title"],
             "price": item["price"],

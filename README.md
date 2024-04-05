@@ -1,7 +1,4 @@
-# HikePlanner
-
-inspired by https://blog.mimacom.com/data-collection-scrapy-hiketime-prediction/
-similar dataset https://www.kaggle.com/datasets/roccoli/gpx-hike-tracks
+# PricePredictor
 
 ## Spider
 
@@ -27,20 +24,15 @@ similar dataset https://www.kaggle.com/datasets/roccoli/gpx-hike-tracks
 * Scrape
 * Load data to MongoDB (Azure Cosmos DB)
 * Update model and save to Azure Blob Storage
+* Deploy model via Azure Webapp
 
 ## App
 * Backend: Python Flask (backend/service.py)
-* Frontend: SvelteKit (build still manually)
+* Frontend: SvelteKit
 
 ## Deployment with Docker
 
 * Dockerfile
 * Install dependencies with pip
-* Copy Frontend (prebuilt, TODO Build)
 * Azure Blob Storage: Zugriffsschlüssel als Umgebungsvariable
 
-## Ideas
-
-* Personalized Model
-    * For a specific Hikr user
-    * z.B. 100 weitere "neue" Daten eines bestimmten Benutzers 
